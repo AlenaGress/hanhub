@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HunHub — Твой путь в мир китайского языка</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles-home.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">HunHub</div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav>
+                    <ul class="nav-links" id="nav-links">
+                        <li><a href="#about">О проекте</a></li>
+                        <li><a href="#features">Функции</a></li>
+    
+                        <!-- Если пользователь авторизован -->
+                        {% if session.get('user_id') %}
+                            <li><a href="{{ url_for('profile') }}">Профиль</a></li>
+                            <li><a href="{{ url_for('logout') }}">Выход</a></li>
+                        {% else %}
+                            <li><a href="{{ url_for('register') }}">Регистрация</a></li>
+                            <li><a href="{{ url_for('login') }}">Вход</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <h1>HunHub — Твой путь в мир китайского языка</h1>
+            <p>Учись эффективно с карточками, повторением, играми и интерактивными текстами. Лёгко. Увлекательно. По-настоящему.</p>
+            <a href="#signup" class="cta-button">Начать обучение</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>О проекте HunHub</h2>
+            <p>HunHub — это инновационная образовательная платформа, созданная для русскоязычных пользователей, изучающих китайский язык. Мы объединили современные технологии и эффективные методики обучения в одном удобном месте.</p>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Что ты получаешь?</h2>
+            <div class="features-grid">
+                <div class="feature-card">📚 Карточки слов с пиньинем и примерами</div>
+                <div class="feature-card">🔁 Умная система повторения (SRS)</div>
+                <div class="feature-card">📖 Интерактивные тексты с переводом</div>
+                <div class="feature-card">🎮 Геймифицированные задания и мини-игры</div>
+                <div class="feature-card">📈 Профиль и отслеживание прогресса</div>
+                <div class="feature-card">💬 Форум и сообщество учеников</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="signup" class="highlight-section">
+        <div class="container">
+            <h2>Начни сейчас</h2>
+            <p>Создай бесплатный аккаунт и получи доступ ко всем функциям HunHub.</p>
+            <a href="/register.html" class="cta-button">Зарегистрироваться</a>
+        </div>
+    </section>
+
+    <section id="login">
+        <div class="container">
+            <h2>Уже есть аккаунт?</h2>
+            <p>Войди и продолжай изучение.</p>
+            <a href="/login.html" class="cta-button secondary">Войти</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 HunHub — Образование без границ. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

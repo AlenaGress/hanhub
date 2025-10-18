@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить новый текст</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Подключение стилей через Flask -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_text.css') }}">
+</head>
+<body>
+
+<h1>Добавить новый текст</h1>
+
+<form id="addTextForm">
+    <label for="title">Название текста</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="description">Краткое описание</label>
+    <textarea id="description" name="description"></textarea>
+
+    <label for="level">Уровень сложности</label>
+    <select id="level" name="level" required>
+        <option value="">Выберите уровень</option>
+        <option value="HSK1">HSK1</option>
+        <option value="HSK2">HSK2</option>
+        <option value="HSK3">HSK3</option>
+        <option value="HSK4">HSK4</option>
+        <option value="HSK5">HSK5</option>
+        <option value="HSK6">HSK6</option>
+    </select>
+
+    <label for="contentJson">Текст в формате JSON</label>
+    <textarea id="contentJson" name="contentJson" placeholder='Введите JSON, например: [{"word":"有一天","pinyin":"yǒu yī tiān","translation":"однажды"},...]' required></textarea>
+
+    <button type="submit">Добавить текст</button>
+
+    <div class="message" id="message"></div>
+</form>
+
+<!-- Список существующих текстов -->
+<h1>Список текстов</h1>
+<table id="textsTable">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Уровень</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody id="textsList">
+        <!-- Данные для таблицы будут загружаться через JS -->
+    </tbody>
+</table>
+
+<!-- Подключение JS через Flask -->
+<script src="{{ url_for('static', filename='add_text.js') }}"></script>
+</body>
+</html>

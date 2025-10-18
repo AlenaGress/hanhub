@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    background: url('https://architizer-prod.imgix.net/media/14884116763361_Wuhan_Bridgehead_CBD_overall_site.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #2d3e50;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+header {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #3a5ea1;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.nav-links li a {
+    font-weight: 600;
+    color: #3a5ea1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.25rem 0;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3a5ea1;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.register-section {
+    padding: 4rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    position: relative;
+    z-index: 1;
+}
+
+.register-form {
+    background-color: #ffffff;
+    padding: 3rem;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+}
+
+.form-title {
+    grid-column: 1 / -1;
+    text-align: left;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.form-subtitle {
+    grid-column: 1 / -1;
+    text-align: left;
+    font-size: 1.15rem;
+    color: #5c6b82;
+    margin-bottom: 0.5rem;
+   
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2d3e50;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    background-color: #f9fbfe;
+    font-size: 1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #3a5ea1;
+    box-shadow: 0 0 0 4px rgba(58, 94, 161, 0.15);
+    outline: none;
+}
+
+.cta-button {
+    grid-column: 1 / -1;
+    background-color: #3a5ea1;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 12px 30px rgba(58, 94, 161, 0.3);
+    margin-top: 1rem;
+}
+
+.cta-button:hover {
+    background-color: #2c4c8a;
+    transform: translateY(-2px);
+}
+
+.form-footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.form-footer a {
+    color: #3a5ea1;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    color: #2c4c8a;
+}
+
+footer {
+    background-color: rgb(227, 235, 245);
+    padding: 1rem;
+    text-align: center;
+    color: #6b7c92;
+    font-size: 0.95rem;
+    margin-top: auto;
+    backdrop-filter: blur(6px);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.2rem;
+    }
+
+    .register-form {
+        padding: 2rem 1.5rem;
+        grid-template-columns: 1fr;
+    }
+
+    .form-title {
+        font-size: 2rem;
+    }
+
+    .form-subtitle {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+    }
+}

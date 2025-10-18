@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Угадай иероглиф | HunHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='guess.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Угадай иероглиф</h1>
+    <div id="game-area">
+      <p class="question-text"></p>
+      <div id="options" class="options-grid"></div>
+      <button id="next-btn" style="display:none;">Следующий</button>
+    </div>
+    <p id="result" class="result"></p>
+  </div>
+  <script>
+    const setId = new URLSearchParams(window.location.search).get("set_id");
+  </script>
+  <script src="{{ url_for('static', filename='guess.js') }}"></script>
+</body>
+</html>

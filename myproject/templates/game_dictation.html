@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Диктант | HunHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dictation.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Диктант: Напечатай иероглиф для перевода</h1>
+
+    <div id="game-area">
+      <p>Перевод: <span id="translation"></span></p>
+      <input type="text" id="answer-input" placeholder="Введите иероглиф" />
+      <button id="submit-btn">Проверить</button>
+      <p id="feedback" class="feedback"></p>
+    </div>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    const setId = new URLSearchParams(window.location.search).get("set_id");
+  </script>
+  <script src="{{ url_for('static', filename='dictation.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чтение текста | HunHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='read_text.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="{{ url_for('static', filename='read_text.js') }}" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">HunHub</div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/profile">Профиль</a></li>
+            <li><a href="/logout">Выход</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="reading-section">
+    <div class="container">
+      <div class="text-header">
+        <h1 id="textTitle">Загрузка...</h1>
+        <p class="text-meta" id="textMeta">Уровень: -</p>
+      </div>
+
+      <div class="text-tools">
+        <button class="tool-btn" onclick="togglePinyin()">💬 Показать/Скрыть пиньинь</button>
+      </div>
+
+      <div id="textContent" class="text-content">
+        <!-- Сюда загрузится текст -->
+      </div>
+    </div>
+  </section>
+  <div class="audio-player-container">
+    <audio id="textAudioPlayer" controls>
+      Ваш браузер не поддерживает элемент audio.
+    </audio>
+  </div>
+  
+  <!-- Модальное окно для выбора сета -->
+  <!-- Модальное окно для выбора сета -->
+  <div id="addWordModal" class="modal-overlay">
+    <div class="modal-window">
+      <h3>Добавить слово в сет</h3>
+      <p id="selectedWordDisplay"></p>
+      <select id="setsDropdown">
+        <!-- Здесь динамически загрузятся наборы -->
+      </select>
+      <div class="modal-buttons">
+        <button onclick="confirmAddWord()">Добавить</button>
+        <button onclick="closeAddWordModal()">Отмена</button>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 HunHub — Образование без границ.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

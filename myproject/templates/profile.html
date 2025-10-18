@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль | HunHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">HunHub</div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="{{ url_for('flashcards') }}">Карточки</a></li>
+            <li><a href="{{ url_for('texts_page') }}">Тексты</a></li>
+            <li><a href="{{ url_for('game_select') }}">Мини-игры</a>
+            <li><a href="{{ url_for('index') }}">Главная</a></li>
+            <li><a href="{{ url_for('logout') }}">Выход</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="profile-section">
+    <div class="container">
+      <div class="profile-card">
+        <div class="profile-avatar">
+          <img src="{{ url_for('static', filename='img/avatars/' + (user.avatar if user.avatar else 'default_avatar.png')) }}" alt="Аватар пользователя">
+       </div>
+          
+        <div class="profile-info">
+          <h2>{{ user.username }}</h2> <!-- Имя пользователя из базы данных -->
+          <p>Email: {{ user.email }}</p> <!-- Email из базы данных -->
+          <p>Дата регистрации: {{ user.created_at.strftime('%d.%m.%Y') }}</p> <!-- Дата регистрации из базы данных -->
+
+          <div class="profile-actions">
+            <button class="profile-btn">Редактировать профиль</button>
+            <button class="profile-btn">Сменить пароль</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-stats">
+        <h3>Твой прогресс</h3>
+        <ul class="stats-list">
+          <li>📘 Изучено слов: <strong>342</strong></li>
+          <li>🧠 Повторено карточек: <strong>1280</strong></li>
+          <li>🏆 Получено достижений: <strong>8</strong></li>
+        </ul>
+      </div>
+
+      <div class="profile-achievements">
+        <h3>Твои достижения</h3>
+        <ul class="achievement-list">
+          <li>🌟 Новичок: Пройдено первое задание</li>
+          <li>📈 Упорство: 7 дней подряд</li>
+          <li>🧩 Мастер чтения: 10 текстов</li>
+          <li>🕹️ Играющий учёный: 5 мини-игр</li>
+        </ul>
+      </div>
+
+      <div class="profile-history">
+        <h3>Прогресс в изучении слов</h3>
+        <table class="progress-table">
+          <thead>
+            <tr>
+              <th>Слово</th>
+              <th>Набор</th>
+              <th>Прогресс</th>
+              <th>Действие</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for card in user_cards %}
+              <tr>
+                <td>{{ card.character }}</td>
+                <td>{{ card.set.name }}</td>
+                <td>
+                  {% if card.progress and card.progress[0] %}
+                    <span>Следующее повторение: {{ card.progress[0].next_review_date.strftime('%d.%m.%Y') }}</span><br>
+                    <span>Повторений: {{ card.progress[0].repetitions }}</span><br>
+                    <span>Интервал: {{ card.progress[0].interval }} дней</span><br>
+                    {% if card.progress[0].repetitions == 0 %}
+                      <span>Статус: Начальный</span>
+                    {% elif card.progress[0].repetitions == 1 %}
+                      <span>Статус: Средний</span>
+                    {% else %}
+                      <span>Статус: Продвинутый</span>
+                    {% endif %}
+                  {% else %}
+                    <span>Прогресс не установлен</span>
+                  {% endif %}
+                </td>
+                
+                
+                <td>
+                  <button data-card-id="{{ card.id }}" onclick="resetProgress({{ card.id }})">Сбросить прогресс</button>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      
+      
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 HunHub — Образование без границ.</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='profile.js') }}"></script>
+</body>
+</html>

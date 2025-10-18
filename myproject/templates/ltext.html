@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Выбор текста | HunHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='ltext.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="{{ url_for('static', filename='ltext.js') }}" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">HunHub</div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/profile">Профиль</a></li>
+            <li><a href="/logout">Выход</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="reading-section">
+    <div class="container">
+      <div class="text-header">
+        <h1>Выбери текст для чтения</h1>
+        <p class="text-meta">Фильтруй по уровню, названию или продолжительности</p>
+      </div>
+
+      <div class="filter-bar">
+        <input type="search" id="searchInput" placeholder="Поиск по названию..." />
+        <select id="levelSelect">
+          <option value="">Все уровни</option>
+          <option value="HSK1">HSK1</option>
+          <option value="HSK2">HSK2</option>
+          <option value="HSK3">HSK3</option>
+          <option value="HSK4">HSK4</option>
+          <option value="HSK5">HSK5</option>
+          <option value="HSK6">HSK6</option>
+        </select>
+      </div>
+
+      <div class="text-grid" id="textGrid">
+        <!-- Здесь динамически появятся карточки текстов -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 HunHub — Образование без границ.</p>
+    </div>
+  </footer>
+</body>
+</html>

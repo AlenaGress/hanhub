@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+
+/* === Базовые стили === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: #f7faff;
+  color: #2d3e50;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* === Заголовок === */
+h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #3a5ea1;
+  margin-bottom: 2rem;
+}
+
+/* === Блок выбора === */
+.section {
+  background-color: #ffffff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+  animation: slideIn 0.3s ease-out;
+}
+
+.section h2 {
+  font-size: 1.4rem;
+  color: #3a5ea1;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* === Селект выбора сета === */
+#set-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccd8ee;
+  border-radius: 10px;
+  background-color: #f9fbff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2rem;
+  padding-right: 3rem;
+}
+
+#set-select:focus {
+  border-color: #3a5ea1;
+  box-shadow: 0 0 0 2px rgba(58, 94, 161, 0.15);
+  outline: none;
+}
+
+/* === Кнопки игр === */
+.game-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #3a5ea1;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  margin-top: 1rem;
+}
+
+.game-button:hover {
+  background-color: #2c4c8a;
+  transform: scale(1.02);
+}
+
+.game-button:active {
+  transform: scale(0.98);
+}
+
+/* === Иконки слева от текста === */
+.game-button::before {
+  font-size: 1.3rem;
+}
+
+.game-button[data-game="guess"]::before {
+  content: "🀄";
+}
+.game-button[data-game="match"]::before {
+  content: "🔗";
+}
+.game-button[data-game="sentence"]::before {
+  content: "🧱";
+}
+.game-button[data-game="dictation"]::before {
+  content: "📝";
+}
+
+/* === Адаптивность === */
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
+  .game-button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
+/* === Анимации === */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

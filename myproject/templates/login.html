@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход | HunHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">HunHub</div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Главная</a></li>
+            <li><a href="{{ url_for('register') }}">Регистрация</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="register-section">
+    <div class="container">
+      <form class="register-form" action="/submit_login" method="POST">
+        <div class="form-title">Вход в аккаунт HunHub</div>
+        <div class="form-subtitle">Введи свои данные, чтобы продолжить обучение</div>
+
+        <div class="form-group">
+          <label for="email">Электронная почта</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+
+        <button type="submit" class="cta-button">Войти</button>
+
+        <div class="form-footer">
+          Нет аккаунта? <a href="{{ url_for('register') }}">Зарегистрироваться</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 HunHub — Образование без границ.</p>
+    </div>
+  </footer>
+</body>
+</html>

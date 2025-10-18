@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Карточки | HunHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='flashcards.css') }}">
+  
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='flashcards.js') }}" defer></script>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">HunHub</div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Главная</a></li>
+            <li><a href="{{ url_for('profile') }}">Профиль</a></li>
+            <li><a href="{{ url_for('logout') }}">Выход</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="flashcards-section">
+    <div class="container">
+      <div class="flashcards-header">
+        <h1>Карточки для запоминания слов</h1>
+      </div>
+
+      <div class="sets-panel">
+        <h2>Наборы карточек</h2>
+        <ul id="set-list" class="set-list"></ul>
+        <div class="add-set-form">
+          <input type="text" id="new-set-name" placeholder="Название нового набора" />
+          <button id="add-set-btn">Добавить набор</button>
+        </div>
+      </div>
+
+
+      <div id="table-view" style="display:none; margin-top: 2rem;">
+        <h2>Просмотр набора</h2>
+        <table id="word-table" border="1" cellpadding="10" style="width: 100%; border-collapse: collapse; background: #fff;">
+          <thead>
+            <tr>
+              <th>Иероглифы</th>
+              <th>Пиньинь</th>
+              <th>Перевод</th>
+              <th>Пример</th>
+              <th>Картинка</th>
+            </tr>
+          </thead>
+          <tbody id="word-table-body"></tbody>
+        </table>
+        <div class="table-actions">
+          <button class="hide-table">Скрыть</button>
+          <button class="import">Импорт Excel</button>
+          <input type="file" id="import-file" accept=".xlsx,.xls" style="display:none;">                  
+          <button class="edit">Редактировать</button>
+          <button id="start-learning-btn">Начать изучение карточек</button>
+        </div>
+        <div class="add-card-form">
+          <h3>Добавить карточку</h3>
+          <input type="text" id="card-character" placeholder="Иероглиф" />
+          <input type="text" id="card-pinyin" placeholder="Пиньинь" />
+          <input type="text" id="card-translation" placeholder="Перевод" />
+          <input type="text" id="card-example" placeholder="Пример использования" />
+          <input type="text" id="card-image-url" placeholder="URL картинки" />
+          <button id="add-card-btn">Добавить карточку</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 HunHub — Образование без границ.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Выбор игры | HunHub</title>
+
+  <!-- Стили -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='games.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Выбор мини-игры</h1>
+
+    <div class="section">
+      <h2>1. Выберите набор карточек</h2>
+      <select id="set-select" name="set">
+        <option value="">-- Загрузка наборов... --</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <h2>2. Выберите игру</h2>
+      <button class="game-button" data-game="guess">Угадай иероглиф</button>
+      <button class="game-button" data-game="match">Сопоставление карточек</button>
+      <button class="game-button" data-game="dictation">Диктант</button>
+    </div>
+  </div>
+
+  <!-- Скрипт -->
+  <script src="{{ url_for('static', filename='games.js') }}"></script>
+</body>
+</html>
+

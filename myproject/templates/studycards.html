@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Изучение карточек | HunHub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='studycards.css') }}">
+  <script src="{{ url_for('static', filename='studycards.js') }}" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Изучение карточек</h1>
+    </div>
+  </header>
+
+  <section class="container" id="selection-area">
+    <h2>Выберите наборы для изучения</h2>
+    <ul id="sets-list"></ul>
+    <button id="start-study-btn">Начать обучение</button>
+  </section>
+
+  <section class="container" id="study-area" style="display: none;">
+    <div id="card">
+      <div class="card-inner">
+        <div id="card-front" class="card-side">
+          <div class="card-content"></div>
+        </div>
+        <div id="card-back" class="card-side">
+          <div class="card-content">
+            <div class="card-back-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="study-buttons">
+      <button id="know-btn">✅ Запомнил</button>
+      <button id="repeat-btn">🔄 Повторить</button>
+      <button id="speak-btn">🔊 Озвучить</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 HunHub — Образование без границ.</p>
+    </div>
+  </footer>
+</body>
+</html>
