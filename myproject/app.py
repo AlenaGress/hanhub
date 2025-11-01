@@ -58,7 +58,7 @@ def get_cards(set_id):
     cards = Card.query.filter_by(set_id=set_id).all()
     return jsonify([
         {
-            'id': card.id,  # ✅ Добавляем id
+            'id': card.id,  
             'character': card.character,
             'pinyin': card.pinyin,
             'translation': card.translation,
@@ -609,4 +609,5 @@ def game_dictation():
     return render_template('game_dictation.html')  # Рендеринг страницы игры
 
 if __name__ == '__main__':
+
     app.run(debug=True)
