@@ -27,7 +27,7 @@ class Card(db.Model):
     example = db.Column(db.Text)
     image_url = db.Column(db.String(255))
 
-    # ✅ ДОБАВЬ ЭТУ СТРОКУ:
+   
     progress = db.relationship("UserProgress", back_populates="card", cascade="all, delete-orphan")
 
 
@@ -90,3 +90,4 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User {self.username}>'
+
