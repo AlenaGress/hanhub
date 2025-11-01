@@ -138,7 +138,6 @@ button:hover {
 }
 
 /* Стили для кнопки удаления */
-/* Стили для кнопки удаления */
 .delete-btn {
     background-color: #e74c3c;
     color: white;
@@ -150,10 +149,10 @@ button:hover {
     transition: background-color 0.3s ease;
     
     /* Центрирование кнопки */
-    display: block; /* Сделаем её блочным элементом */
-    margin: 0 auto; /* Это выровняет кнопку по центру ячейки */
-    width: fit-content; /* Устанавливаем ширину кнопки по содержимому */
-    vertical-align: middle; /* Убедимся, что кнопка будет выровнена по центру вертикально */
+    display: block; 
+    margin: 0 auto; 
+    width: fit-content; 
+    vertical-align: middle; 
 }
 
 /* Эффект при наведении на кнопку удаления */
@@ -173,3 +172,4 @@ button:hover {
         width: 100%;
     }
 }
+
